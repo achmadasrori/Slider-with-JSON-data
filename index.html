@@ -1,0 +1,79 @@
+<html ng-app="App">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"  />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+		<meta name="description" content="Slider with JSON data">
+		<title>Slider with JSON data</title>
+		<link href="css/stylesheets/screen.css" rel="stylesheet" />
+	</head>
+	<body>
+		<section>
+			<div id="slide"></div>
+			<a id="prev" style="left:0" onclick="plusDivs(-1)">❮</a>
+			<a id="next" style="right:0" onclick="plusDivs(1)">❯</a>
+		</section>
+		<footer>
+			Copyright &copy; 2016 Cipjunior All Right Reserved
+		</footer>
+		<script type="text/javascript">
+		
+			// GET JSON DATA
+			var xmlhttp = new XMLHttpRequest();
+			var url = "data/feed.json";
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+						var dataJson = JSON.parse(this.responseText);
+						myFunction(dataJson);
+				}
+			};
+			xmlhttp.open("GET", url, true);
+			xmlhttp.send();
+
+			// ADD ELEMENT
+			var tmpl="";
+			function myFunction(arr) {
+				var i;
+				for(i = 0; i < arr.length; i++) {
+					tmpl += '<div class="item" style="background:url('+arr[i].image+') no-repeat">'
+						tmpl += '<h1>'+arr[i].title+'</h1>'
+					tmpl += '</div>';
+				}
+				document.getElementById("slide").innerHTML = tmpl;
+			}
+
+			// SET SLIDER
+			var slideIndex = 1;
+			function plusDivs(n) {
+				showDivs(slideIndex += n);
+			}
+			function showDivs(n) {
+				var item = document.getElementsByClassName("item");
+				if (n > item.length) {
+					slideIndex = 1
+				}
+				if (item < 1) {
+					slideIndex = item.length
+				}
+				for (var i = 0; i < item.length; i++) {
+					 item[i].classList.remove("show");
+				}
+				if(slideIndex<2){
+					document.getElementById("prev").style.display = 'none';
+				}else{
+					document.getElementById("prev").style.display = 'block';
+				}
+				if(slideIndex>item.length-1){
+					document.getElementById("next").style.display = 'none';
+				}else{
+					document.getElementById("next").style.display = 'block';
+				}
+				item[slideIndex-1].classList.add("show");
+			}
+			setTimeout(function(){
+				showDivs(slideIndex);
+			}, 100);
+
+		</script>
+	</body>
+</html>

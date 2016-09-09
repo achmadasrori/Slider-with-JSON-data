@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "author": "Contrary",
+    "image": "img/dummy1.jpg",
+    "title": "Contrary to popular belief, Lorem Ipsum is not simply random text"
+  },
+  {
+    "id": 2,
+    "author": "Richard",
+    "image": "img/dummy2.jpg",
+    "title": "Richard McClintock a Latin professor"
+  },
+  {
+    "id": 3,
+    "author": "Survived",
+    "image": "img/dummy3.jpg",
+    "title": "Lorem Ipsum comes from sections"
+  },
+  {
+    "id": 4,
+    "author": "Centuries",
+    "image": "img/dummy4.jpg",
+    "title": "It has survived not only five centuries"
+  },
+  {
+    "id": 5,
+    "author": "Standard",
+    "image": "img/dummy5.jpg",
+    "title": "The standard chunk of Lorem Ipsum used since the 1500s"
+  },
+  {
+    "id": 6,
+    "author": "Passage",
+    "image": "img/dummy6.jpg",
+    "title": "If you are going to use a passage of Lorem Ipsum"
+  }
+]

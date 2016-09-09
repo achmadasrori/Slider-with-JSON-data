@@ -1,0 +1,78 @@
+@import "compass/reset";
+@import "compass/css3";
+
+$width_100 : 100%;
+
+$break-small: 400px;
+$break-midlle: 650px;
+$break-large: 800px;
+
+body{
+	background:#f7f7f7;
+}
+
+section{
+	position:relative;
+	margin:0 auto;
+
+}
+
+#slide{
+	position:relative;
+	width:$width_100;
+	height:600px;
+	overflow:hidden;
+	background:#000;
+	.item{
+		background-size: cover;
+		opacity:0;
+		width:$width_100;
+		height:600px;
+		position:absolute;
+		top:0;
+		left:0;
+		width:$width_100;
+		@include transition(all 0.2s ease-in-out);
+		h1{
+			position:absolute;
+			bottom:-100px;
+			left:0px;
+			z-index:3;
+			background:rgba(0, 0, 0, 0.5);
+			color:#fff;
+			width:96%;
+			padding:20px 2%;
+			@include transition(all 0.3s ease-in-out);
+		}
+	}
+	.item.show{
+		opacity:1;
+		h1{
+			bottom:0;
+		}
+	}
+
+	@media screen and (max-width: $break-small) {
+
+	}
+}
+a{
+	cursor:pointer;
+	position:absolute;
+	top:48%;
+	z-index:2;
+	color:#fff;
+	background:rgba(0, 0, 0, 0.5);
+	padding:10px;
+	font-size:30px;
+	&:hover{
+		background:rgba(0, 0, 0, 0.8);
+	}
+}
+footer{
+	width:$width_100;
+	padding:20px 0;
+	font-size:12px;
+	text-align:center;
+	background:#fff;
+}
